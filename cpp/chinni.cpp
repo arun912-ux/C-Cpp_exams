@@ -1,31 +1,24 @@
 #include<bits/stdc++.h>
+// #include<iostream>
 using namespace std;
 
+void f(int n){
+    if (n>0){
+        f(--n);
+        cout << n;
+        f(--n);
+    }
+}
 
 int main(){
 
-    string n;
-    cin >> n;
-    int cnt=0;
-    for(int i=0; i<n.length(); i++){
-        for(int j=i; j<=n.length(); ++j){
-            string str =  n.substr(i, j);
-            stringstream s1(str);
-            int x;
-            s1 >> x;
+    int n;
+    // cin >> n;
+    int a=3;
+    f(a);
 
-            if(x%2==0 ){
-                cnt++;
-            }
 
-            cout << x << " " << i << " " << j << endl;
-        }
-    }
 
- 
-    cout << cnt << endl;
 
     return 0;
 }
-
-
