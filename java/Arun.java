@@ -1,6 +1,6 @@
 import java.util.*; 
 
-public class Solution{ 
+class Solution {
  
     static void minimumSwaps(int arr1[], int arr2[], int n) { 
         int sumArr1 = 0, sumArr2 = 0; 

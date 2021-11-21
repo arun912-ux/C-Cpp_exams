@@ -13,8 +13,8 @@ class Chinni {
         int i=0;
         ArrayList<String> arr = new ArrayList<String>();
         while(scan.hasNext()){
-            String st = scan.next()
-            if(st.con)
+            String st = scan.next();
+            if(st.contains(" "))
             arr.add(st);
         }
 
