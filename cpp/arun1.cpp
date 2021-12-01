@@ -3,22 +3,12 @@ using namespace std;
 
 int main(){
 
-    int n, evenSum=0, oddSum=0;
-    
-    string st;
-    cin >> st;
+    int x=77;
+    int y=4, ans;
+    ans = (x%y>0 || x&y!=1)? ((y=x++ % ++y)>=2 ? (++x%++y):y): (x=x++ % ++y);
 
-    n = st.length();
-
-    for(int i=0; i<n; i++){
-        if(i%2==0){
-            evenSum+= st[i]-'0';
-        }else{
-            oddSum += st[i]-'0';
-        }
-    }
-
-    cout << oddSum-evenSum;
+    cout << ans;
 
     return 0;
 }
+
