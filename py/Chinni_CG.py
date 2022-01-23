@@ -1,9 +1,13 @@
 
-a=9
-b=6
-c=9
-c=9+b
-a=a+b+b
-a=8&c
+m=1
+j=1
 
-print(a+b+c)
+a=[3,2,4,2]
+a[m]=a[m]^a[0]
+m+=a[m]
+print(m)
+
+
+
+
+
