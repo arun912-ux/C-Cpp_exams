@@ -64,7 +64,7 @@ for k in primlist:
 
 
 if(not flag):
-    print("No")
+    print("No 0")
 
 
 

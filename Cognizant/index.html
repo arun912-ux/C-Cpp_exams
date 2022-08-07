@@ -1,0 +1,58 @@
+<!--Do not make any change in this code template -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Fibonacci Series</title>
+<script>
+//Don't change or delete the try/catch block
+
+function getFibonacci(){
+    event.preventDefault();
+    let res = "0 ";
+    let a=0;
+    let b=1;
+    try{
+    	// Get the fibo value using DOM functions
+    	// Calculate the Fibonacci series
+    	// Display the output in div with id "result"
+    	let n = document.getElementById("fibo").value;
+        console.log(n)
+        for(let i=0; i<n-1; i++){
+
+            res = res + b  + " ";
+            let t = b;
+            b=b+a
+            a=t;
+
+        }
+
+        console.log(res);
+
+    }catch(err){
+        document.getElementById("result").innerHTML=err;
+    }
+    document.getElementById("result").innerHTML = res;
+}
+
+
+
+</script>
+</head>
+<body>
+<form onsubmit="return getFibonacci()">
+<table>
+	<tr>
+		<td>Enter the number to get a fibonacci</td>
+		<td><input type="number" id="fibo" name="fibo"/></td>
+	</tr>
+	<tr>
+		<td colspan="2"><input type="submit" id="fibobtn" name="fibobtn" value="Get Fibonacci Numbers"/></td>
+	</tr>
+</table>
+<div id="result"></div>
+</form>
+</body>
+
+</html>
+
