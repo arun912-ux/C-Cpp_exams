@@ -1,92 +1,43 @@
-
-
-
-
-
-// #include<bits/stdc++.h>
-// using namespace std;
-
-// int main(){
-
-//     int n;
-//     cin >> n;
-
-//     cout << n/2;
-
-
-//     return 0;
-// }
-
-
-
-
-
-
 #include<bits/stdc++.h>
+
+#include<iostream>
 using namespace std;
 
 int main(){
 
-    int n, x, y;
-    cin >> n >> x >> y;
-    int ar[n];
+    int n;
+    cin >> n;
+
+    string s1, s2;
+
+    cin >> s1 >> s2;
+
+    bool flag = false;
 
     for(int i=0; i<n; i++){
-       cin >> ar[i];
+        for(int j=0; j<=i; j++){
+            if(s1[i] == s2[j]){
+                flag = true;
+                break;
+            }
+           
+        }
     }
 
-
-    if(y==-1){
-        cout  << "Yes";
+    if(!flag){
+        cout << "-1";
+        return 0;
     }
-    else{
-        cout << "No";
 
+    int cnt=0;
+    for(int i=0; i<n; i++){
+        
+        if(s1[i] != s2[i]){
+            cnt++;
+        }
     }
+
+    cout << cnt;
 
     return 0;
 }
-
-
-
-
-
-
-
-
-
-// #include<bits/stdc++.h>
-// using namespace std;
-
-
-// int main(){
-
-//     int n;
-//     cin >> n;
-
-//     int ar[n];
-    
-//     for(int i=0; i<n; i++){
-//        cin >> ar[i];
-//     }
-
-//     int  c = 0, i=0;
-
-//     while(i<n){
-//         i += ar[i];
-//         // cout << i << endl;
-//         c++;
-//     }
-
-//     if(i < n-1){
-//         c+=1;
-//     }
-
-//     cout << c-1;
-
-
-//     return 0;
-// }
-
-
-

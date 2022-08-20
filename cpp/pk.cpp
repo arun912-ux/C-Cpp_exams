@@ -1,66 +1,48 @@
 
+
 #include<bits/stdc++.h>
 using namespace std;
 
-long playlist(vector<int> songs){
-
-    int cnt=0;
-    int n = songs.size();
-    // cout << n;
-    int arr[n];
-
-    for(int i=0; i<n; i++){
-        arr[i] = songs.at(i);
-        // cout << arr[i];
-    }
-
-    for(int i=0; i<n-1; i++){
-        for(int j=i+1; j<n; j++){
-           int x = arr[i] + arr[j];
-           if(x%60==0){
-                cnt++;
-           }
-        }
-    }
-
-    return cnt;
+int max (int a, int b){
+    return a>b ? a : b;
 }
 
 
+int knapsack(int W, int wt[], int val[], int n){
+
+    if(n == 0 || W==0){
+        return 0;
+    }  
+
+    if(wt[n-1] > W){
+        return knapsack(W, wt, val, n-1);
+    }
+
+    else{
+        return max(val[n-1] + knapsack(W-wt[n-1], wt, val, n-1) , 
+        knapsack(W, wt, val, n-1));
+    }
+
+}
 
 int main(){
 
-    int n;
-    cin >> n;
-    
-    // int arr[n];
-    vector<int> songs;
+    int n, W;
+    cin >> n >> W;
+    int wt[n];
+    int val[n];
+    for(int i=0; i<n; i++){
+       cin >> wt[i];
+    }
 
     for(int i=0; i<n; i++){
-        int x;
-        cin >> x;
-        // arr[i]= x;
-        songs.push_back(x);
+        cin >> val[i];
     }
 
 
-    cout << playlist(songs);
-
-    // int cnt=0;
-    
-    // for(int i=0; i<n-1; i++){
-    //     for(int j=i+1; j<n; j++){
-    //        int x = arr[i] + arr[j];
-    //        if(x%60==0){
-    //             cnt++;
-    //        }
-    //     }
-    // }
-
-    // cout << cnt;
+    cout << knapsack(W, wt, val, n);
 
     return 0;
-
 }
 
 
