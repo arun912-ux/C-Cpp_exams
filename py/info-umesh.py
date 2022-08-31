@@ -97,63 +97,63 @@
 
 
 
-# import http.client
-# import json
+import http.client
+import json
 
 
-# def getRelevantFoodOutlets(city, maxCost):
+def getRelevantFoodOutlets(city, maxCost):
 
-#     i=1
-#     conn = http.client.HTTPSConnection("jsonmock.hackerrank.com")
-#     payload = ''
-#     headers = {}
-#     req = "/api/food_outlets?city=" + city + "&page="+ str(i)
-#     conn.request("GET", req, payload, headers)
-#     res = conn.getresponse()
-#     data = res.read()
-#     resp = json.loads(data.decode("utf-8"))
+    i=1
+    conn = http.client.HTTPSConnection("jsonmock.hackerrank.com")
+    payload = ''
+    headers = {}
+    req = "/api/food_outlets?city=" + city + "&page="+ str(i)
+    conn.request("GET", req, payload, headers)
+    res = conn.getresponse()
+    data = res.read()
+    resp = json.loads(data.decode("utf-8"))
 
-#     # respdata = resp["data"]
-#     # print(respdata)
+    # respdata = resp["data"]
+    # print(respdata)
 
-#     totali = resp["total_pages"]
-#     perj = resp["per_page"]
-#     # print(totali, perj)
-#     strArr = []
-
-
-#     for i in range(1, totali+1):
-#         req = "/api/food_outlets?city=" + city + "&page="+ str(i)
-#         conn.request("GET", req, payload, headers)
-#         res = conn.getresponse()
-#         data = res.read()
-#         resp = json.loads(data.decode("utf-8"))
-
-#         jsonArr = resp["data"]
-#         for j in range(perj):
-#             curr_item = jsonArr[j]
-#             # print(curr_item)
-#             # print()
-#             x =int(curr_item["estimated_cost"])
-#             # print(x, curr_item["name"])
-#             # print()
-#             if(x <= maxCost):
-#                 strArr.append(curr_item["name"])
-#                 # print(curr_item["name"])
+    totali = resp["total_pages"]
+    perj = resp["per_page"]
+    # print(totali, perj)
+    strArr = []
 
 
+    for i in range(1, totali+1):
+        req = "/api/food_outlets?city=" + city + "&page="+ str(i)
+        conn.request("GET", req, payload, headers)
+        res = conn.getresponse()
+        data = res.read()
+        resp = json.loads(data.decode("utf-8"))
 
-#     return strArr
+        jsonArr = resp["data"]
+        for j in range(perj):
+            curr_item = jsonArr[j]
+            # print(curr_item)
+            # print()
+            x =int(curr_item["estimated_cost"])
+            # print(x, curr_item["name"])
+            # print()
+            if(x <= maxCost):
+                strArr.append(curr_item["name"])
+                # print(curr_item["name"])
 
 
 
+    return strArr
 
 
-# city = input()
-# maxCost = int(input())
 
-# res = getRelevantFoodOutlets(city, maxCost)
-# print(res)
+
+
+city = input()
+maxCost = int(input())
+
+res = getRelevantFoodOutlets(city, maxCost)
+print(res)
 
 
 
