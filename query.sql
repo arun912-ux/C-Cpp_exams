@@ -1,0 +1,9 @@
+
+
+create TABLE student {
+
+    
+
+}
+
+
